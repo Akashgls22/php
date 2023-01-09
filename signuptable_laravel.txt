@@ -1,0 +1,106 @@
+open mark1 in cmd
+
+1.composer
+
+create php controller type...
+
+2.php artisan make:controller *write_nameController
+
+open laravel
+
+3.php artisan servar
+
+copy link and paste on web browser.
+laravel open.
+
+4.open laravel/php folder in subline or vscode.
+
+5. go Resources in views.....and create new file *writename.blade.php.
+   ....create signup table in html.
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <form action="signupData">
+    <h1>welcome</h1>
+        <center>
+        <table border="1">
+            <tr>
+                <td>UserName:</td>
+                <td><input type="text" name="num"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="text" name="Password"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit"></td>
+            </tr>
+        </table>
+    </form>                       
+</body>
+</html>
+
+6.then Go App and Http in Controller....in point no.2 we are create Controller are there.So open it and type...
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class LoginController extends Controller
+{
+    public function index()
+    {
+    	return view("new");
+    }
+    public function signupData(Request $request)
+    {
+    	$uname=$request->input('num');
+    	$Pword=$request->input('Password');
+
+    	echo"Username:".$uname."<br>"."Password:".$Pword;
+    }
+
+}
+
+
+7.then Go Routes file and open Web.php and type...
+
+<?php
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\LoginController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('akash', function () {
+//     return view('new');
+// });
+Route::get('new',[LoginController::class,'index']);
+Route::get('signupData',[LoginController::class,'signupData']);
+
+
+AND GO AGINE IN BROWSER AND BEHIND LINK TYPE..."/" AND YOUR FILE NAME.
+
+YOUR CODE IS RUN.
